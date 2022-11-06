@@ -19,6 +19,6 @@ export class CityWeatherComponent implements OnInit {
   }
 
   iconUrl(wData: IOpenWeatherData): string {
-    return `http://openweathermap.org/img/wn/${wData?.weather?.[0]?.icon}@2x.png`;
+    return `https://openweathermap.org/img/wn/${wData?.weather?.[0]?.icon}@2x.png`;
   }
 }

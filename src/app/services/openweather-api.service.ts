@@ -9,7 +9,7 @@ import { IOpenWeatherData } from '../models/interfaces/open-weather-data.interfa
   providedIn: 'root'
 })
 export class OpenweatherApiService {
-  baseUrl: string = 'http://api.openweathermap.org/data/2.5/';
+  baseUrl: string = 'https://api.openweathermap.org/data/2.5/';
 
   constructor(private _http: HttpClient, private _snackBar: MatSnackBar) { }
 

@@ -8,7 +8,7 @@ import { IReverseGeo } from '../models/interfaces/reverse-geo.interface';
   providedIn: 'root'
 })
 export class OpenweatherGeoApiService {
-  baseUrl: string = 'http://api.openweathermap.org/geo/1.0/';
+  baseUrl: string = 'https://api.openweathermap.org/geo/1.0/';
 
   constructor(private _http: HttpClient) { }
 
