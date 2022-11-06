@@ -1,0 +1,38 @@
+<div class="list">
+  <form class="list__header" [formGroup]="formGroup" (ngSubmit)="addCity()">
+    <mat-form-field appearance="fill" [color]="'accent'" class="list__field">
+      <mat-label>Another location</mat-label>
+      <input matInput [formControl]="newCityCtrl">
+    </mat-form-field>
+    <button type="submit" mat-mini-fab color="accent" class="list__add-btn">
+      <mat-icon>add</mat-icon>
+    </button>
+  </form>
+
+  <ul class="list__items" (click)="selectCity($event)">
+    <li *ngIf="geolocationCity" class="list__item list__item_geo" [class.selected]="geolocationCity === selectedCity">
+      <span class="List__city">
+        {{ geolocationCity }}
+        <mat-icon fontIcon="my_location"></mat-icon>
+      </span>
+    </li>
+    <li *ngFor="let city of curCities; index as i" class="list__item" [class.selected]="city === selectedCity">
+      <span class="List__city">
+        {{ city }}
+      </span>
+      <button mat-icon-button color="accent" class="list__delete-btn" (click)="deleteCity($event, city)"
+        [matTooltip]="'Delete from list'" [matTooltipPosition]="'left'">
+        <mat-icon>bookmark_remove</mat-icon>
+      </button>
+    </li>
+  </ul>
+
+  <div class="list__footer" *ngIf="storageCities.length > 5">
+    <button mat-mini-fab color="accent" (click)="setCities(-1)" [disabled]="curPage === 1">
+      <mat-icon>navigate_before</mat-icon>
+    </button>
+    <button mat-mini-fab color="accent" (click)="setCities(+1)" [disabled]="curPage === maxPage">
+      <mat-icon>navigate_next</mat-icon>
+    </button>
+  </div>
+</div>
